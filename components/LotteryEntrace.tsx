@@ -74,7 +74,7 @@ function LotteryEntrace() {
             lottery.once("LotteryEnter", async() => {
                 console.log("Lottery entrance detected!");
                 try {
-                    updateUI();
+                    await updateUI();
                     resolve();
                 } catch (error) {
                     console.log(error);
