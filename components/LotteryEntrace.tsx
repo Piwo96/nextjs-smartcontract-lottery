@@ -106,13 +106,17 @@ function LotteryEntrace() {
     const handleEnterLottery = async () => {
         setUserEntered(true);
         await enterLottery({onError: handleMetamaskError});
-        await listenForLotteryEntrance().then(() => dispatch({
-            type: "info",
-            message: "Transaction Complete!",
-            title: "Transaction Notification",
-            position: "topR",
-            icon: "bell",
-        })).catch((error) => { console.log(error)});
+        await listenForLotteryEntrance()
+            .then(() => dispatch({
+                type: "info",
+                message: "Transaction Complete!",
+                title: "Transaction Notification",
+                position: "topR",
+                icon: "bell",
+            }))
+            .catch((error) => {
+                 console.log(error
+            )});
         setUserEntered(false);
     }
 
@@ -124,18 +128,20 @@ function LotteryEntrace() {
     const renderValidChainComponent = () => {
         return(
             <div className="py-3">
-                <div className="flex-row">
+                <div className="flex justify-start">
                     <button 
-                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ml-auto" 
+                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" 
                     onClick={handleEnterLottery}
                     disabled={isLoading || isFetching}
                     >{isLoading || isFetching 
                         ? <div className="animate-spin spinner-border h-8 w-8 border-b-2 rounded-full"></div> 
                         : <div>Enter Lottery</div>}
                     </button>
-                    {userEntered 
-                        ? <div>Pending...</div> 
-                        : <div></div>}
+                    <div>
+                        {userEntered 
+                            ? <div className="bg-orange-200 italic py-4 px-4 rounded ml-2">Pending...</div> 
+                            : <div></div>}
+                    </div>
                 </div>
                 <div>Entrance Fee: {ethers.utils.formatUnits(entranceFee, "ether")}</div>
                 <div>Number Of Players: {numOfPlayers}</div>
