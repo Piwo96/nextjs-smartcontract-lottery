@@ -143,7 +143,7 @@ function LotteryEntrace() {
                             : <div></div>}
                     </div>
                 </div>
-                <div>Entrance Fee: {ethers.utils.formatUnits(entranceFee, "ether")}</div>
+                <div>Entrance Fee: {ethers.utils.formatUnits(entranceFee, "ether")} ETH</div>
                 <div>Number Of Players: {numOfPlayers}</div>
                 <div>Recent Winner: {recentWinner}</div>
             </div>
