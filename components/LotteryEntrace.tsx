@@ -1,8 +1,8 @@
 // have a function to enter the lottery
-import { useEffect, useState, ReactElement } from "react";
-import {useWeb3Contract, useMoralis } from "react-moralis";
+import { useEffect, useState } from "react";
+import { useWeb3Contract, useMoralis } from "react-moralis";
 import { ABI, CONTRACT_ADDRESSES } from "../constants";
-import { ethers, ContractTransaction, BigNumber } from "ethers";
+import { ethers, BigNumber } from "ethers";
 import { useNotification } from "web3uikit";
 
 function LotteryEntrace() {
